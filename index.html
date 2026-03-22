@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agustín Aragón — Game Developer & Web</title>
+<meta name="description" content="Agustín Aragón — desarrollador indie (Godot 4) y web. Creador de Siren Protocol, un roguelite de acción con arquitectura narrativa propia. Disponible para colaboraciones y freelance.">
+<meta property="og:title" content="Agustín Aragón — Game Developer & Web">
+<meta property="og:description" content="Desarrollador indie (Godot 4) y web. Creador de Siren Protocol. Disponible para colaboraciones y freelance.">
+<meta property="og:image" content="assets/siren_protocol_menu.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%236B5CE7'/><text y='.88em' x='12' font-size='78' font-family='Georgia,serif' fill='white' font-style='italic'>A</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Noto+Serif+JP:wght@300;400&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="watcher">siren protocol · área activa · patrón: legible</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span>Agustín</span>
+      <span class="nav-logo-jp">静寂の声</span>
+    </div>
+    <div class="nav-links">
+      <a href="#inicio">inicio</a>
+      <a href="#sobre">sobre</a>
+      <a href="#trayectoria">trayectoria</a>
+      <a href="#formacion">formación</a>
+      <a href="#proyectos">proyectos</a>
+      <a href="#skills">skills</a>
+      <a href="#publico">público</a>
+      <a href="#contacto">contacto</a>
+    </div>
+    <button class="nav-burger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile-panel">
+  <a href="#inicio">inicio</a>
+  <a href="#sobre">sobre</a>
+  <a href="#trayectoria">trayectoria</a>
+  <a href="#formacion">formación</a>
+  <a href="#proyectos">proyectos</a>
+  <a href="#skills">skills</a>
+  <a href="#publico">público</a>
+  <a href="#contacto">contacto</a>
+</div>
+
+<section id="inicio" class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div>
+        <!-- SEREN no informa. Observa.
+             La última línea incomoda levemente — es intencional. -->
+        <div class="seren-log">
+          <span class="sl-dim">&gt; </span><span class="sl-val">SEREN</span> — consultando<br>
+          <span class="sl-dim">&gt; </span>sujeto: <span class="sl-val">aragón, d.a.</span><br>
+          <span class="sl-dim">&gt; </span>actividad documentada: <span class="sl-val">semana <span data-semana></span></span><br>
+          <span class="sl-odd">&gt; este archivo no contiene todo.</span>
+        </div>
+
+        <h1 class="hero-title">
+          Agustín<br>
+          <em>Aragón</em>
+        </h1>
+
+        <div class="pause"></div>
+
+        <p class="hero-statement">
+          Construyo mundos antes de construir juegos.<br>
+          <strong>El código y el universo crecen juntos.</strong>
+        </p>
+
+        <div class="hero-cta">
+          <a href="#proyectos" class="btn btn-p">ver proyectos</a>
+          <a href="assets/Siren_Protocol_GDD_v7.docx" download class="btn btn-s">GDD v7</a>
+          <a href="assets/cv_agustin_aragon.docx" download class="btn btn-s">CV</a>
+        </div>
+
+        <div class="hero-stats">
+          <div><div class="sv">2+</div><div class="sl-stat">años prog.</div></div>
+          <div><div class="sv" data-semana></div><div class="sl-stat">semanas dev</div></div>
+          <div><div class="sv">4+</div><div class="sl-stat">proyectos</div></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hv-frame">
+          <img src="assets/siren_protocol_menu.png" alt="Siren Protocol" onerror="this.style.minHeight='200px'">
+          <div class="hv-caption">
+            <div class="hv-name">Siren Protocol</div>
+            <div class="hv-state">en desarrollo</div>
+          </div>
+        </div>
+        <div class="hv-meta">
+          <span>roguelite · pc</span>
+          <span>godot 4.x</span>
+          <span>semana <span data-semana></span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap">
+    <div class="sec-label">background</div>
+    <h2 class="sec-title">Sobre <em>mí</em></h2>
+
+    <!-- Empieza desde adentro, no desde el CV -->
+    <div class="about-statement">
+      Tengo 17 años y trabajo en solitario desde hace dos.<br>
+      No construyo juegos. <strong>Construyo el lugar donde los juegos viven.</strong>
+    </div>
+
+    <div class="two">
+      <div>
+        <p class="body-p">Me llamo <strong>Agustín Aragón</strong>. Trabajo en Godot 4 y en desarrollo web. Mi proyecto principal es Siren Protocol — un roguelite que es el primer punto de entrada a un universo más grande, con su propia filosofía interna, su propia historia y su propia IA que toma decisiones que el jugador no comprende del todo.</p>
+        <p class="body-p">Mi fortaleza no es técnica. Es que <strong>puedo documentar lo que construyo antes de construirlo</strong> — y esa capacidad de hacer que algo exista en papel antes de existir en código cambia cómo se construye todo lo demás.</p>
+
+        <!-- Fragmentos — no bullets.
+             Cada uno existe en silencio, solo. -->
+        <div class="fragments">
+          <div class="fragment">
+            <div class="frag-key">I</div>
+            <div class="frag-text">Un juego con arquitectura filosófica coherente retiene jugadores que uno sin ella nunca alcanza.</div>
+          </div>
+          <div class="fragment">
+            <div class="frag-key">II</div>
+            <div class="frag-text">Un GDD bien construido no describe el juego. Es el juego antes de existir en código.</div>
+          </div>
+          <div class="fragment">
+            <div class="frag-key">III</div>
+            <div class="frag-text">La complejidad que se siente proviene de capas coherentes, no de mecánicas acumuladas.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-head">estado actual</div>
+          <div class="card-body">
+            <div class="irow"><span class="ik">proyecto</span><span class="iv">Siren Protocol</span></div>
+            <div class="irow"><span class="ik">estado</span><span class="iv"><span class="pill">activo</span></span></div>
+            <div class="irow"><span class="ik">semana</span><span class="iv" data-semana></span></div>
+            <div class="irow"><span class="ik">disponibilidad</span><span class="iv">abierto</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">intereses</div>
+          <div class="card-body">
+            <div class="tags">
+              <span class="tag">Roguelites</span><span class="tag">Godot 4</span>
+              <span class="tag">Game Design</span><span class="tag">GDD Writing</span>
+              <span class="tag">Narrative Design</span><span class="tag">Universe Building</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trayectoria">
+  <div class="wrap">
+    <div class="sec-label">bitácora</div>
+    <h2 class="sec-title">Mi <em>Trayectoria</em></h2>
+    <div class="two">
+      <div class="tl">
+        <div class="tl-item"><div class="tl-y">2023</div><div class="tl-t">Inicio en programación general. <strong>Lógica, estructura, algoritmos.</strong> Primer contacto con el lenguaje de las máquinas.</div></div>
+        <div class="tl-item"><div class="tl-y">2024</div><div class="tl-t">Desarrollo web activo. <strong>HTML, CSS, PHP, JavaScript.</strong> Primeros proyectos que existen afuera de mi cabeza.</div></div>
+        <div class="tl-item"><div class="tl-y">Dic 2025</div><div class="tl-t">Primer contacto con <strong>Godot 4.</strong> El espacio entre programar y diseñar desaparece.</div></div>
+        <div class="tl-item"><div class="tl-y">Ene 2026</div><div class="tl-t">Nace <strong>Siren Protocol.</strong> Sistemas base. El juego todavía no sabe que es un universo.</div></div>
+        <div class="tl-item"><div class="tl-y">Feb 2026</div><div class="tl-t">La decisión. El proyecto deja de ser un juego con lore y se convierte en <strong>un universo con un juego como primer punto de entrada.</strong></div></div>
+        <div class="tl-item"><div class="tl-y">Hoy</div><div class="tl-t"><strong>Semana 8.</strong> La arquitectura narrativa está completa. El resto es construir.</div></div>
+      </div>
+      <div>
+        <div class="card">
+          <div class="card-head">fortalezas</div>
+          <div class="card-body"><div class="tags">
+            <span class="tag">Documentación</span><span class="tag">Organización</span>
+            <span class="tag">Diseño de sistemas</span><span class="tag">Trabajo autónomo</span>
+            <span class="tag">Narrative design</span>
+          </div></div>
+        </div>
+        <div class="card" style="margin-top:12px">
+          <div class="card-head">en aprendizaje activo</div>
+          <div class="card-body"><div class="tags">
+            <span class="tag">Shaders</span><span class="tag">Audio design</span>
+            <span class="tag">Optimización</span><span class="tag">Build avanzado</span>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formacion">
+  <div class="wrap">
+    <div class="sec-label">educación</div>
+    <h2 class="sec-title"><em>Formación</em> Académica</h2>
+    <div class="fc">
+      <div>
+        <div class="fc-inst">E.E.S.T. N°5 — Berazategui</div>
+        <div class="fc-title">técnico en programación</div>
+        <ul class="fc-list">
+          <li>Último año (7° año) — egreso estimado 2026</li>
+          <li>Materias técnicas: Programación · Sistemas Operativos · Redes · Gestión de Proyectos</li>
+          <li><strong>Proyecto destacado:</strong> Sistema de Gestión de Alumnos — HTML, CSS, JS, PHP, MySQL</li>
+        </ul>
+      </div>
+      <div class="fc-year">
+        <div class="fc-n">7°</div>
+        <div class="fc-l">año actual</div>
+        <div style="margin-top:14px"><span class="pill">en curso</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="sec-label">work</div>
+    <h2 class="sec-title"><em>Proyectos</em></h2>
+
+    <div class="proj-main">
+      <div class="proj-img">
+        <img src="assets/siren_protocol_menu.png" alt="Siren Protocol" onerror="this.style.minHeight='340px'">
+        <div class="proj-badge">proyecto principal</div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-meta">
+          <span class="mc">Ene 2026 – Presente</span>
+          <span class="mc">Godot 4.x</span>
+          <span class="mc">PC</span>
+        </div>
+        <h3 class="proj-title">Siren Protocol</h3>
+        <div class="proj-tag">la voz del silencio — roguelite de acción</div>
+
+        <!-- Descripción como el Shimmer —
+             no explica qué es, insinúa qué hace -->
+        <p class="proj-desc">
+          Hace treinta años, algo pasó. El área resultante sigue creciendo.
+          SEREN lleva veintiún años aprendiendo a leer patrones que nadie más puede leer.
+          SEREN nunca miente. Solo selecciona qué verdades son útiles compartir en cada momento.
+          El jugador entra. Lo que encuentra depende de lo que trae.
+        </p>
+
+        <div class="dl">estado — semana <span data-semana></span></div>
+        <ul class="det-list">
+          <li><strong>Core jugable completo:</strong> 4 personajes, sinergias nivel 1-2-3, Director de IA (SEREN), oleadas adaptativas</li>
+          <li><strong>GDD v7:</strong> ~2000 líneas con arquitectura de sistemas y marco filosófico</li>
+          <li><strong>Lore bilingüe (ES/EN):</strong> tres voces narrativas simultáneas — OmniGen, narrador, SEREN</li>
+        </ul>
+        <div class="dl" style="margin-top:16px">tech stack</div>
+        <div class="chips">
+          <span class="chip">Godot 4.x</span><span class="chip">GDScript</span>
+          <span class="chip">State Machine</span><span class="chip">Wave System</span>
+          <span class="chip">AI Director</span>
+        </div>
+        <div class="proj-actions">
+          <a href="assets/Siren_Protocol_GDD_v7.docx" download class="btn btn-p">descargar GDD v7</a>
+          <button class="btn btn-s" disabled>demo (próximamente)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ember Rite — proyecto colaborativo con arte propio -->
+    <div class="proj-secondary">
+      <div class="proj-img-sm">
+        <img src="assets/ember_rite_menu.png" alt="Ember Rite" onerror="this.style.minHeight='200px'">
+        <div class="proj-badge">colaborativo</div>
+      </div>
+      <div class="proj-body-sm">
+        <div class="proj-meta">
+          <span class="mc">2025 – Presente</span>
+          <span class="mc">Godot 4.6</span>
+          <span class="mc">PC</span>
+          <span class="mc">Demo v0.1</span>
+        </div>
+        <h3 class="proj-title" style="font-size:30px">Ember Rite</h3>
+        <div class="proj-tag">preserva la llama · equilibra el mundo — plataformero de precisión</div>
+        <p class="proj-desc">Un golem de carbón frágil en un mundo polarizado entre el fuego y el hielo. La mecánica central es la gestión térmica: absorber calor de los hornos para sobrevivir zonas congeladas, expulsarlo para despejar el camino. Cada decisión es una pregunta — ¿lo guardo o lo uso ahora? Referentes de tono: Celeste, Hollow Knight.</p>
+        <div class="dl">sistemas implementados</div>
+        <ul class="det-list">
+          <li><strong>Sistema de calor:</strong> absorción, acumulación y expulsión con feedback visual dinámico</li>
+          <li><strong>Movimiento:</strong> dash en 8 direcciones, wall jump, salto variable — control "tight"</li>
+          <li><strong>Arte propio:</strong> pixel art con iluminación dinámica, golem como fuente de luz móvil</li>
+          <li><strong>Demo v0.1</strong> funcional — menú completo, primer bioma jugable</li>
+        </ul>
+        <div class="dl" style="margin-top:14px">tech stack</div>
+        <div class="chips">
+          <span class="chip">Godot 4.6</span><span class="chip">GDScript</span>
+          <span class="chip">Pixel Art</span><span class="chip">Dynamic Lighting</span><span class="chip">GDD</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://guguslu.itch.io" target="_blank" class="btn btn-s">ver en itch.io →</a>
+          <button class="btn btn-s" disabled>demo (próximamente)</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grid: proyectos web -->
+    <div class="sec-label" style="margin-top:48px">web & otros</div>
+    <div class="pgrid">
+      <div class="pc">
+        <div class="pc-head">
+          <h4 class="pc-title">QuickReply IA</h4>
+          <span class="pc-st">activo</span>
+        </div>
+        <p class="pc-desc">Plataforma freemium de generación de respuestas con IA. Colaboración con Diego Aragón. Rol: diseño de interfaz, desarrollo frontend y mantenimiento del sitio.</p>
+        <div class="chips" style="margin-bottom:16px">
+          <span class="chip">HTML</span><span class="chip">CSS</span>
+          <span class="chip">JavaScript</span><span class="chip">PostgreSQL</span>
+        </div>
+        <a href="https://quickreply-ia.com" target="_blank" class="btn btn-s" style="font-size:10px;padding:8px 18px">ver sitio →</a>
+      </div>
+      <div class="pc">
+        <div class="pc-head">
+          <h4 class="pc-title">Sistema de Gestión de Alumnos</h4>
+          <span class="pc-st">escolar</span>
+        </div>
+        <p class="pc-desc">Aplicación web para registro, consulta y administración de alumnos. Desarrollado en equipo como proyecto técnico de 6° año en la E.E.S.T. N°5.</p>
+        <div class="chips">
+          <span class="chip">HTML</span><span class="chip">CSS</span>
+          <span class="chip">JavaScript</span><span class="chip">PHP</span><span class="chip">MySQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-label">expertise</div>
+    <h2 class="sec-title">Habilidades <em>Técnicas</em></h2>
+    <div class="sk-grid">
+      <div>
+        <div class="sk-cat">core skills</div>
+        <div class="sk-item">
+          <div class="sk-top"><span class="sk-name">GDScript / Godot 4.x</span><span class="sk-lv">Intermedio</span></div>
+          <div class="sk-track"><div class="sk-fill" style="width:60%"></div></div>
+          <div class="sk-note">Nodos, señales, state machines, AI directors, UI completa.</div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-top"><span class="sk-name">Game Design & GDD</span><span class="sk-lv">Intermedio-Alto</span></div>
+          <div class="sk-track"><div class="sk-fill" style="width:72%"></div></div>
+          <div class="sk-note">GDD v7 ~2000 líneas, lore bilingüe, arquitectura filosófica.</div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-top"><span class="sk-name">HTML / CSS</span><span class="sk-lv">Intermedio</span></div>
+          <div class="sk-track"><div class="sk-fill" style="width:65%"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-top"><span class="sk-name">PHP</span><span class="sk-lv">Intermedio-Alto</span></div>
+          <div class="sk-track"><div class="sk-fill" style="width:68%"></div></div>
+        </div>
+        <div class="sk-item">
+          <div class="sk-top"><span class="sk-name">JavaScript</span><span class="sk-lv">Intermedio</span></div>
+          <div class="sk-track"><div class="sk-fill" style="width:60%"></div></div>
+        </div>
+      </div>
+      <div>
+        <div class="sk-cat">lenguajes</div>
+        <div class="lang-list">
+          <div class="lang-row"><span class="lang-n">GDScript</span><span class="lang-l">Intermedio</span></div>
+          <div class="lang-row"><span class="lang-n">PHP</span><span class="lang-l">Intermedio-Alto</span></div>
+          <div class="lang-row"><span class="lang-n">JavaScript</span><span class="lang-l">Intermedio</span></div>
+          <div class="lang-row"><span class="lang-n">HTML / CSS</span><span class="lang-l">Intermedio</span></div>
+          <div class="lang-row"><span class="lang-n">Python</span><span class="lang-l">Básico-Alto</span></div>
+          <div class="lang-row"><span class="lang-n">MySQL</span><span class="lang-l">Básico-Int.</span></div>
+          <div class="lang-row"><span class="lang-n">C++ / C#</span><span class="lang-l">Básico</span></div>
+        </div>
+        <div class="sk-cat" style="margin-top:32px">herramientas</div>
+        <div class="tool-row"><div class="tool-dot"></div>GitHub — Repositorios y versiones</div>
+        <div class="tool-row"><div class="tool-dot"></div>Trello — Gestión de tareas</div>
+        <div class="tool-row"><div class="tool-dot"></div>GDD Writing — Documentación técnica y narrativa</div>
+        <div class="tool-row"><div class="tool-dot"></div>Cursor (IA) — Asistencia en sistemas complejos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publico">
+  <div class="wrap">
+    <div class="sec-label">para quién</div>
+    <h2 class="sec-title">Público <em>Objetivo</em></h2>
+    <div class="pub-grid">
+      <div class="pub-card">
+        <div class="pub-lbl">desarrollo web</div>
+        <h3 class="pub-title">Clientes freelance</h3>
+        <ul class="pub-list">
+          <li>Profesionales que necesiten un <strong>sitio web funcional y a medida</strong></li>
+          <li>Proyectos con backend: formularios, bases de datos, PHP / MySQL</li>
+          <li>Mantenimiento y actualización de sitios existentes</li>
+        </ul>
+      </div>
+      <div class="pub-card">
+        <div class="pub-lbl">gamedev</div>
+        <h3 class="pub-title">Industria indie</h3>
+        <ul class="pub-list">
+          <li>Estudios o publishers que busquen un <strong>desarrollador Godot con base en diseño de sistemas</strong></li>
+          <li>Artistas 2D interesados en colaborar en Siren Protocol</li>
+          <li>Desarrolladores que quieran un proyecto con arquitectura narrativa sólida desde el inicio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="ct-grid">
+      <div>
+        <div class="sec-label">contacto</div>
+
+        <!-- No "Trabajemos juntos".
+             Ghost in the Shell: el ghost reconoce otro ghost. -->
+        <h2 class="ct-title">Si llegaste<br>hasta <em>acá</em></h2>
+
+        <p class="ct-invitation">algo de esto te reconoció.</p>
+
+        <p class="ct-desc">Si necesitás una web, querés colaborar en Siren Protocol, o simplemente querés hablar de universos que todavía no terminaron de encenderse — escribime.</p>
+
+        <div class="c-links">
+          <a href="assets/cv_agustin_aragon.docx" download class="c-link">
+            <div class="c-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v8m0 0l-3-3m3 3l3-3M2 14h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+            <div><div class="c-lbl">CV</div><div class="c-val">Descargar curriculum</div></div>
+          </a>
+          <a href="#" class="c-link email-link">
+            <div class="c-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M2 5.5l6 4 6-4" stroke="currentColor" stroke-width="1.5"/></svg></div>
+            <div><div class="c-lbl">Email</div><div class="c-val email-label"></div></div>
+          </a>
+          <a href="https://github.com/guguslu" target="_blank" class="c-link">
+            <div class="c-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1C4.13 1 1 4.13 1 8c0 3.09 2 5.71 4.79 6.64.35.06.48-.15.48-.34 0-.16-.01-.71-.01-1.29-1.76.32-2.21-.43-2.35-.82-.08-.2-.42-.82-.72-.99-.24-.13-.59-.45-.01-.46.55-.01.94.51 1.07.72.63 1.06 1.63.76 2.03.58.06-.46.24-.76.44-.94-1.55-.18-3.18-.78-3.18-3.46 0-.76.27-1.39.72-1.88-.07-.17-.31-.89.07-1.85 0 0 .58-.18 1.92.72A6.64 6.64 0 018 5.13c.6.003 1.19.08 1.75.24 1.34-.91 1.92-.72 1.92-.72.38.97.14 1.68.07 1.85.45.49.72 1.12.72 1.88 0 2.69-1.64 3.28-3.2 3.46.25.22.47.64.47 1.29 0 .94-.01 1.68-.01 1.91 0 .19.13.41.48.34A7.01 7.01 0 0015 8c0-3.87-3.13-7-7-7z"/></svg></div>
+            <div><div class="c-lbl">GitHub</div><div class="c-val">github.com/guguslu</div></div>
+          </a>
+          <a href="https://guguslu.itch.io" target="_blank" class="c-link">
+            <div class="c-icon"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 4.3C2 2.8 4.7 2 8 2s6 .8 6 2.3v.2c0 .8-.7 1.5-1.5 1.5-.7 0-1.3-.4-1.5-1-.2.6-.8 1-1.5 1s-1.4-.4-1.5-1c-.2.6-.8 1-1.5 1s-1.3-.4-1.5-1c-.2.6-.8 1-1.5 1C2.7 6 2 5.3 2 4.5v-.2zM3.5 7.5h9v5c0 .8-.7 1.5-1.5 1.5h-6c-.8 0-1.5-.7-1.5-1.5v-5zm2 1.5v1.2H4v1h1.5V13h1v-1.8H8v-1H5.5zm4 1a.75.75 0 110 1.5.75.75 0 010-1.5zm1.5-1a.75.75 0 110 1.5.75.75 0 010-1.5z"/></svg></div>
+            <div><div class="c-lbl">Itch.io</div><div class="c-val">guguslu.itch.io</div></div>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="cta-box">
+          <h3 class="cta-title">¿Te interesa el universo?</h3>
+          <p class="cta-desc">Siren Protocol busca colaboradores, artistas 2D, y personas que entiendan que los mejores juegos no son los más complejos. Son los más coherentes.</p>
+          <a href="#" class="btn btn-p email-link">escribir</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div class="ft-left">
+        <span class="ft-logo">Agustín Aragón</span>
+        <span class="ft-jp">静寂の声</span>
+      </div>
+      <div class="ft-meta">
+        Portfolio diseñado y desarrollado por Agustín Aragón<br>
+        Siren Protocol — GDD v7 · Semana <span data-semana></span> de desarrollo
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

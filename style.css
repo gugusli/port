@@ -1,0 +1,714 @@
+:root {
+  --bg:      #070610;
+  --bg2:     #0a0918;
+  --bg3:     #0d0c1e;
+  --surface: rgba(107,92,231,.05);
+  --border:  rgba(107,92,231,.1);
+  --border2: rgba(107,92,231,.22);
+  --v:       #6B5CE7;
+  --v2:      rgba(107,92,231,.18);
+  --v3:      rgba(107,92,231,.07);
+  --vdim:    rgba(107,92,231,.55);
+  --text:    #d4d0f0;
+  --text2:   rgba(212,208,240,.42);
+  --text3:   rgba(107,92,231,.65);
+  --serif:   'Cormorant Garamond', serif;
+  --jp:      'Noto Serif JP', serif;
+  --mono:    'Space Mono', monospace;
+  --sans:    'DM Sans', sans-serif;
+  --ease:    cubic-bezier(.4,0,.2,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Lo que Annihilation llama el Shimmer —
+   una luz que viene de adentro, no de afuera */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 30% 20%, rgba(107,92,231,.06) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 80% 70%, rgba(80,60,200,.04) 0%, transparent 60%),
+    radial-gradient(ellipse 30% 30% at 60% 40%, rgba(107,92,231,.03) 0%, transparent 50%);
+  animation: breathe 16s ease-in-out infinite alternate;
+}
+@keyframes breathe {
+  0%   { opacity: .7; transform: scale(1) rotate(0deg); }
+  50%  { opacity: 1; transform: scale(1.03) rotate(.3deg); }
+  100% { opacity: .8; transform: scale(1.01) rotate(-.2deg); }
+}
+
+/* Grano — la textura de algo vivo */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  opacity: .9;
+}
+
+.wrap { max-width: 1060px; margin: 0 auto; padding: 0 52px; position: relative; z-index: 1; }
+
+/* ── NAV ─────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  height: 62px; display: flex; align-items: center;
+  background: rgba(7,6,16,.85); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  width: 100%; max-width: 1060px; margin: 0 auto; padding: 0 52px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--serif); font-size: 17px; font-weight: 300;
+  font-style: italic; color: var(--v); letter-spacing: 1px;
+  display: flex; align-items: baseline; gap: 10px;
+}
+.nav-logo-jp {
+  font-family: var(--jp); font-size: 10px;
+  color: rgba(107,92,231,.28); letter-spacing: 2px;
+}
+.nav-links { display: flex; gap: 30px; }
+.nav-links a {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-decoration: none; color: var(--text2); text-transform: lowercase;
+  transition: color .25s var(--ease);
+}
+.nav-links a:hover { color: var(--v); }
+
+/* ── HERO ────────────────────────── */
+.hero {
+  min-height: 100vh; padding-top: 62px;
+  display: flex; align-items: center; position: relative;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 52px; right: 52px;
+  height: 1px; background: linear-gradient(90deg, transparent, var(--border2), transparent);
+}
+
+/* Texto vertical — el ojo que observa desde afuera */
+.watcher {
+  position: fixed; right: 20px; top: 50%; transform: translateY(-50%);
+  writing-mode: vertical-rl; font-family: var(--mono);
+  font-size: 8px; letter-spacing: 8px; color: rgba(107,92,231,.15);
+  text-transform: uppercase; pointer-events: none; z-index: 800;
+  user-select: none;
+}
+
+.hero-inner {
+  display: grid; grid-template-columns: 1fr 280px;
+  gap: 80px; align-items: center; padding: 100px 0 80px;
+}
+
+/* El log de SEREN — no confirma, observa.
+   No informa, pregunta sin preguntar. */
+.seren-log {
+  font-family: var(--mono); font-size: 11px; line-height: 2.3;
+  color: var(--text3); margin-bottom: 44px;
+  padding-left: 20px; border-left: 1px solid var(--border2);
+  position: relative;
+}
+.seren-log::before {
+  content: '';
+  position: absolute; left: -1px; top: 0;
+  width: 1px; height: 35%;
+  background: var(--v);
+  animation: scan 6s ease-in-out infinite;
+}
+@keyframes scan {
+  0%   { top: 0%;  height: 30%; opacity: .9; }
+  50%  { top: 65%; height: 25%; opacity: .3; }
+  100% { top: 0%;  height: 30%; opacity: .9; }
+}
+.sl-dim  { color: rgba(107,92,231,.25); }
+.sl-val  { color: var(--v); }
+/* Esta línea es deliberadamente inquietante.
+   SEREN sabe más de lo que dice. */
+.sl-odd  { color: rgba(107,92,231,.35); font-style: italic; }
+
+.hero-title {
+  font-family: var(--serif); font-weight: 300;
+  font-size: 84px; line-height: .88; letter-spacing: -3px;
+  color: var(--text);
+}
+.hero-title em {
+  font-style: italic; color: var(--v);
+  font-weight: 400; display: block;
+}
+
+/* La línea que respira entre el nombre y el resto.
+   Annihilation tiene silencios entre cada cosa. */
+.pause {
+  width: 48px; height: 1px;
+  background: linear-gradient(90deg, var(--v), transparent);
+  margin: 36px 0;
+  animation: pulse 4s ease-in-out infinite alternate;
+}
+@keyframes pulse {
+  0%   { width: 48px; opacity: .6; }
+  100% { width: 72px; opacity: 1; }
+}
+
+/* El subtítulo no se presenta — declara */
+.hero-statement {
+  font-family: var(--serif); font-size: 20px; font-weight: 300;
+  font-style: italic; color: var(--text2); line-height: 1.6;
+  max-width: 420px;
+}
+.hero-statement strong { color: var(--text); font-weight: 400; font-style: normal; }
+
+.hero-cta { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 2px;
+  text-transform: lowercase; text-decoration: none;
+  border: none; cursor: pointer; padding: 11px 24px;
+  transition: all .25s var(--ease);
+}
+.btn-p { background: var(--v); color: var(--bg); }
+.btn-p:hover { background: #8070ef; }
+.btn-s { background: transparent; color: var(--v); border: 1px solid var(--border2); }
+.btn-s:hover { background: var(--v3); border-color: var(--v); }
+.btn:disabled { opacity: .22; cursor: not-allowed; }
+
+.hero-stats {
+  display: flex; gap: 44px; margin-top: 56px;
+  padding-top: 36px; border-top: 1px solid var(--border);
+}
+.sv {
+  font-family: var(--serif); font-size: 48px; font-weight: 300;
+  font-style: italic; color: var(--v); line-height: 1;
+}
+.sl-stat {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--text2); margin-top: 6px;
+}
+
+/* Hero visual */
+.hero-visual { display: flex; flex-direction: column; gap: 12px; }
+.hv-frame {
+  border: 1px solid var(--border2); overflow: hidden;
+  position: relative; background: var(--bg3);
+}
+.hv-frame img {
+  width: 100%; display: block; max-height: 230px; object-fit: cover;
+  filter: saturate(.65) brightness(.75) hue-rotate(20deg);
+  transition: filter .6s var(--ease);
+}
+.hv-frame:hover img { filter: saturate(.85) brightness(.88) hue-rotate(10deg); }
+.hv-frame::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 35%, rgba(7,6,16,.8));
+}
+.hv-caption {
+  position: absolute; bottom: 14px; left: 14px; right: 14px; z-index: 2;
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+.hv-name {
+  font-family: var(--serif); font-size: 16px; font-style: italic;
+  font-weight: 400; color: var(--text);
+}
+.hv-state {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  color: var(--v); text-transform: uppercase;
+}
+.hv-meta {
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: 10px; color: var(--text2);
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+}
+.hv-meta span { color: rgba(107,92,231,.35); }
+
+/* ── SECTIONS ────────────────────────── */
+section { padding: 116px 0; position: relative; z-index: 1; }
+section + section { border-top: 1px solid var(--border); }
+
+.sec-label {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 5px;
+  color: var(--text3); text-transform: uppercase;
+  display: flex; align-items: center; gap: 16px; margin-bottom: 16px;
+}
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.sec-title {
+  font-family: var(--serif); font-size: 56px; font-weight: 300;
+  letter-spacing: -1.5px; line-height: .92; color: var(--text);
+  margin-bottom: 64px;
+}
+.sec-title em { font-style: italic; color: var(--v); font-weight: 400; }
+
+/* ── SOBRE MÍ ─────────────────────────
+   No empieza con "Soy X". Empieza desde
+   adentro. Los hechos llegan después. */
+.about-statement {
+  font-family: var(--serif); font-size: 28px; font-weight: 300;
+  font-style: italic; line-height: 1.4; color: var(--text);
+  max-width: 680px; margin-bottom: 52px;
+  border-left: 1px solid var(--border2); padding-left: 28px;
+}
+.about-statement strong { font-weight: 500; font-style: normal; color: var(--v); }
+
+.two { display: grid; grid-template-columns: 1fr 280px; gap: 72px; }
+
+.body-p {
+  font-size: 14px; line-height: 1.9; color: var(--text2);
+  font-weight: 300; margin-bottom: 18px;
+}
+.body-p strong { color: var(--text); font-weight: 500; }
+
+/* Fragmentos filosóficos — no bullets.
+   Cada uno existe solo. Como el Área X. */
+.fragments { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
+.fragment {
+  padding: 28px 0; border-bottom: 1px solid var(--border);
+  position: relative;
+}
+.fragment:last-child { border-bottom: none; }
+.frag-text {
+  font-family: var(--serif); font-size: 19px; font-weight: 300;
+  font-style: italic; color: var(--text2); line-height: 1.5;
+  max-width: 520px;
+  transition: color .3s;
+}
+.fragment:hover .frag-text { color: var(--text); }
+.frag-key {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 4px;
+  color: var(--text3); text-transform: uppercase; margin-bottom: 10px;
+}
+/* Un detalle que recompensa al que presta atención */
+.fragment:nth-child(2) .frag-text::after {
+  content: ' 〔記録〕';
+  font-family: var(--jp); font-size: 12px;
+  color: rgba(107,92,231,.2); font-style: normal;
+}
+
+.card {
+  background: var(--bg2); border: 1px solid var(--border);
+  margin-bottom: 12px; overflow: hidden;
+}
+.card-head {
+  padding: 10px 16px; border-bottom: 1px solid var(--border);
+  font-family: var(--mono); font-size: 9px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--text3);
+  background: rgba(107,92,231,.04);
+}
+.card-body { padding: 14px 16px; }
+.irow {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 7px 0; border-bottom: 1px solid rgba(107,92,231,.06); font-size: 13px;
+}
+.irow:last-child { border-bottom: none; }
+.ik { color: var(--text2); font-family: var(--mono); font-size: 10px; }
+.iv { color: var(--text); }
+.pill {
+  display: inline-block; padding: 3px 10px;
+  background: var(--v2); color: var(--v);
+  font-size: 10px; font-family: var(--mono);
+}
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+  padding: 4px 10px; font-family: var(--mono); font-size: 10px;
+  letter-spacing: 1px; color: var(--text3);
+  background: var(--v3); border: 1px solid var(--border);
+}
+
+/* ── TRAYECTORIA ──────────────────────
+   Una bitácora de campo, no un CV */
+.tl { padding-left: 28px; position: relative; }
+.tl::before {
+  content: ''; position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 1px; background: linear-gradient(180deg, var(--v), transparent);
+}
+.tl-item { position: relative; margin-bottom: 40px; }
+.tl-item::before {
+  content: ''; position: absolute; left: -33px; top: 7px;
+  width: 7px; height: 7px;
+  background: var(--bg); border: 1px solid var(--v);
+  transition: background .25s;
+}
+.tl-item:hover::before { background: var(--v2); }
+.tl-y {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+  color: var(--v); text-transform: uppercase; margin-bottom: 6px;
+}
+.tl-t { font-size: 14px; color: var(--text2); line-height: 1.8; font-weight: 300; }
+.tl-t strong { color: var(--text); font-weight: 500; }
+
+/* ── FORMACIÓN ─────────────────────── */
+.fc {
+  display: grid; grid-template-columns: 1fr 180px;
+  gap: 48px; padding: 36px; background: var(--bg2);
+  border: 1px solid var(--border); position: relative;
+}
+.fc::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, var(--v), transparent);
+}
+.fc-inst {
+  font-family: var(--serif); font-size: 26px; font-weight: 400;
+  font-style: italic; color: var(--text); margin-bottom: 6px;
+}
+.fc-title {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--vdim); margin-bottom: 24px;
+}
+.fc-list { list-style: none; }
+.fc-list li {
+  font-size: 13px; color: var(--text2); padding: 8px 0;
+  border-bottom: 1px solid var(--border); line-height: 1.55; font-weight: 300;
+}
+.fc-list li:last-child { border-bottom: none; }
+.fc-list li strong { color: var(--text); font-weight: 500; }
+.fc-year {
+  text-align: center; padding: 24px 16px;
+  border: 1px solid var(--border); background: var(--v3);
+}
+.fc-n {
+  font-family: var(--serif); font-size: 60px; font-weight: 300;
+  font-style: italic; color: var(--v); line-height: 1;
+}
+.fc-l {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--text2); margin-top: 8px;
+}
+
+/* ── PROYECTOS ─────────────────────────────────
+   Siren Protocol descrito como el Shimmer —
+   lo que hace, no lo que es */
+.proj-main {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--border); margin-bottom: 24px;
+  overflow: hidden; position: relative;
+}
+.proj-main::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, var(--v), transparent); z-index: 2;
+}
+.proj-img {
+  position: relative; background: var(--bg3);
+  height: 320px; flex-shrink: 0;
+}
+.proj-img img {
+  width: 100%; height: 100%; object-fit: cover;
+  object-position: center top; display: block;
+  filter: saturate(.6) brightness(.72) hue-rotate(20deg);
+}
+.proj-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(7,6,16,.75));
+}
+.proj-badge {
+  position: absolute; top: 16px; left: 16px; z-index: 2;
+  padding: 5px 12px; background: var(--bg); border: 1px solid var(--v);
+  font-family: var(--mono); font-size: 9px; letter-spacing: 3px;
+  color: var(--v); text-transform: uppercase;
+}
+.proj-body { padding: 36px; }
+.proj-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.mc {
+  font-family: var(--mono); font-size: 10px; color: var(--text2);
+  padding: 4px 10px; border: 1px solid var(--border);
+}
+
+/* Título del proyecto como epígrafe de diario */
+.proj-title {
+  font-family: var(--serif); font-size: 40px; font-weight: 400;
+  font-style: italic; color: var(--text); line-height: .92; margin-bottom: 6px;
+}
+.proj-tag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+  color: var(--vdim); text-transform: uppercase; margin-bottom: 24px;
+}
+
+/* La descripción de Siren Protocol no explica.
+   Insinúa. Hace una pregunta que no hace. */
+.proj-desc {
+  font-family: var(--serif); font-size: 16px; font-weight: 300;
+  font-style: italic; color: var(--text2); line-height: 1.85;
+  margin-bottom: 28px; border-left: 1px solid var(--border2);
+  padding-left: 18px;
+}
+
+.dl {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--text3); margin: 18px 0 10px;
+}
+.det-list { list-style: none; }
+.det-list li {
+  font-size: 13px; color: var(--text2); padding: 7px 0 7px 16px;
+  border-bottom: 1px solid var(--border); position: relative;
+  line-height: 1.55; font-weight: 300;
+}
+.det-list li::before { content: '—'; position: absolute; left: 0; color: var(--border2); }
+.det-list li:last-child { border-bottom: none; }
+.det-list li strong { color: var(--text); font-weight: 500; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  padding: 4px 10px; font-family: var(--mono); font-size: 10px;
+  color: var(--text3); border: 1px solid var(--border); background: var(--v3);
+}
+.proj-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+
+.pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+/* Proyecto secundario destacado */
+.proj-secondary {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--border); margin: 28px 0 0;
+  overflow: hidden; position: relative;
+}
+.proj-secondary::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, rgba(107,92,231,.4), transparent); z-index: 2;
+}
+.proj-img-sm {
+  position: relative; background: var(--bg3);
+  height: 260px; flex-shrink: 0; overflow: hidden;
+}
+.proj-img-sm img {
+  width: 100%; height: 100%; object-fit: cover;
+  object-position: center top; display: block;
+  filter: saturate(.7) brightness(.78) hue-rotate(15deg);
+}
+.proj-img-sm::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(7,6,16,.7));
+}
+.proj-body-sm { padding: 28px; }
+.pc {
+  border: 1px solid var(--border); padding: 26px;
+  background: var(--bg2); position: relative; overflow: hidden;
+  transition: border-color .2s;
+}
+.pc::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: var(--border); transition: background .2s;
+}
+.pc:hover { border-color: var(--border2); }
+.pc:hover::before { background: var(--v); }
+.pc-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.pc-title {
+  font-family: var(--serif); font-size: 21px; font-weight: 400;
+  font-style: italic; color: var(--text); line-height: 1.1;
+}
+.pc-st {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  color: var(--v); background: var(--v3); padding: 3px 8px; text-transform: uppercase;
+}
+.pc-desc { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 14px; font-weight: 300; }
+
+/* ── SKILLS ──────────────────────── */
+.sk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.sk-cat {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--text3); margin-bottom: 26px;
+  padding-bottom: 14px; border-bottom: 1px solid var(--border);
+}
+.sk-item { margin-bottom: 22px; }
+.sk-top { display: flex; justify-content: space-between; margin-bottom: 7px; }
+.sk-name { font-size: 14px; color: var(--text); font-weight: 400; }
+.sk-lv { font-family: var(--mono); font-size: 10px; color: var(--vdim); }
+.sk-track { height: 1px; background: var(--border2); position: relative; }
+.sk-fill {
+  position: absolute; top: -1px; left: 0; height: 3px;
+  background: linear-gradient(90deg, var(--v), rgba(107,92,231,.2));
+  transition: width 1.4s cubic-bezier(.4,0,.2,1);
+}
+.sk-note { font-size: 12px; color: var(--text2); margin-top: 6px; line-height: 1.5; font-weight: 300; }
+.lang-list { display: flex; flex-direction: column; }
+.lang-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px;
+}
+.lang-row:last-child { border-bottom: none; }
+.lang-n { color: var(--text); }
+.lang-l { font-family: var(--mono); font-size: 10px; color: var(--text3); }
+.tool-row {
+  display: flex; align-items: center; gap: 14px; padding: 12px 0;
+  border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text2); font-weight: 300;
+}
+.tool-row:last-child { border-bottom: none; }
+.tool-dot { width: 4px; height: 4px; background: var(--v); flex-shrink: 0; }
+
+/* ── PÚBLICO ─────────────────────── */
+.pub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.pub-card {
+  padding: 32px; background: var(--bg2); border: 1px solid var(--border);
+  position: relative;
+}
+.pub-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 1px;
+  background: linear-gradient(180deg, var(--v), transparent);
+}
+.pub-lbl {
+  font-family: var(--mono); font-size: 9px; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--text3); margin-bottom: 10px;
+}
+.pub-title {
+  font-family: var(--serif); font-size: 26px; font-weight: 400;
+  font-style: italic; color: var(--text); margin-bottom: 20px; line-height: 1.1;
+}
+.pub-list { list-style: none; }
+.pub-list li {
+  font-size: 13px; color: var(--text2); padding: 8px 0 8px 16px;
+  border-bottom: 1px solid var(--border); position: relative;
+  line-height: 1.65; font-weight: 300;
+}
+.pub-list li::before { content: '—'; position: absolute; left: 0; color: var(--border2); }
+.pub-list li:last-child { border-bottom: none; }
+.pub-list li strong { color: var(--text); font-weight: 500; }
+
+/* ── CONTACTO ────────────────────────────────
+   No "Trabajemos juntos". Algo más quieto.
+   Ghost in the Shell: el ghost reconoce otro ghost. */
+#contacto { background: var(--bg2); }
+.ct-grid { display: grid; grid-template-columns: 1fr 360px; gap: 80px; align-items: start; }
+
+.ct-title {
+  font-family: var(--serif); font-size: 62px; font-weight: 300;
+  line-height: .9; letter-spacing: -2px; color: var(--text); margin-bottom: 24px;
+}
+.ct-title em { font-style: italic; color: var(--v); font-weight: 400; }
+
+/* La invitación que no es exactamente una invitación */
+.ct-invitation {
+  font-family: var(--serif); font-size: 16px; font-style: italic;
+  font-weight: 300; color: var(--text2); line-height: 1.8;
+  margin-bottom: 16px; max-width: 440px;
+}
+.ct-desc {
+  font-size: 13px; color: var(--text2); line-height: 1.85;
+  margin-bottom: 36px; max-width: 440px; font-weight: 300;
+}
+
+.c-links { display: flex; flex-direction: column; gap: 10px; }
+.c-link {
+  display: flex; align-items: center; gap: 16px; padding: 14px 18px;
+  border: 1px solid var(--border); background: var(--bg3);
+  text-decoration: none; color: var(--text);
+  transition: border-color .2s var(--ease);
+}
+.c-link:hover { border-color: var(--v); }
+.c-icon {
+  width: 38px; height: 38px; border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--v); flex-shrink: 0; background: var(--v3);
+}
+.c-lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--text3); }
+.c-val { font-size: 13px; color: var(--text); margin-top: 2px; }
+
+.cta-box {
+  border: 1px solid var(--border2); padding: 36px; background: var(--bg3);
+  position: relative; overflow: hidden;
+}
+.cta-box::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, var(--v), transparent);
+}
+/* Círculo de Annihilation — bello, sin propósito evidente */
+.cta-box::after {
+  content: ''; position: absolute; right: -40px; bottom: -40px;
+  width: 130px; height: 130px; border-radius: 50%;
+  border: 1px solid rgba(107,92,231,.07); pointer-events: none;
+}
+.cta-title {
+  font-family: var(--serif); font-size: 26px; font-weight: 400;
+  font-style: italic; color: var(--v); margin-bottom: 12px; line-height: 1.2;
+}
+.cta-desc {
+  font-size: 13px; color: var(--text2); line-height: 1.75;
+  margin-bottom: 26px; font-weight: 300;
+}
+
+/* ── FOOTER ──────────────────────── */
+footer {
+  padding: 32px 0; border-top: 1px solid var(--border); background: var(--bg);
+}
+.ft { display: flex; justify-content: space-between; align-items: center; }
+.ft-left { display: flex; align-items: baseline; gap: 10px; }
+.ft-logo {
+  font-family: var(--serif); font-size: 18px; font-weight: 300;
+  font-style: italic; color: var(--v);
+}
+.ft-jp { font-family: var(--jp); font-size: 11px; color: rgba(107,92,231,.25); }
+.ft-meta {
+  font-family: var(--mono); font-size: 10px; color: var(--text2);
+  text-align: right; line-height: 1.9;
+}
+
+/* ── RESPONSIVE ──────────────────── */
+@media (max-width: 900px) {
+  .hero-inner, .two, .ct-grid,
+  .sk-grid, .pgrid, .pub-grid, .fc { grid-template-columns: 1fr; }
+  .proj-img { height: 220px; }
+  .proj-img-sm { height: 200px; }
+  .hero-visual, .watcher { display: none; }
+  .nav-links { display: none; }
+  .sec-title { font-size: 40px; }
+  .hero-title { font-size: 58px; }
+  .ct-title { font-size: 44px; }
+  .wrap { padding: 0 24px; }
+  .about-statement { font-size: 22px; }
+}
+
+/* ── HAMBURGER ───────────────────── */
+.nav-burger {
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
+  width: 36px; height: 36px; background: none; border: none;
+  cursor: pointer; padding: 4px;
+}
+.nav-burger span {
+  display: block; height: 1px; background: var(--text2);
+  transition: all .25s var(--ease); transform-origin: center;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--v); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--v); }
+@media (max-width: 900px) { .nav-burger { display: flex; } }
+
+/* ── MOBILE PANEL ────────────────── */
+.nav-mobile-panel {
+  display: none;
+  position: fixed; top: 62px; left: 0; right: 0; z-index: 850;
+  background: rgba(7,6,16,.97); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  flex-direction: column; padding: 12px 0;
+  transform: translateY(-8px); opacity: 0;
+  transition: opacity .2s var(--ease), transform .2s var(--ease);
+}
+.nav-mobile-panel.open {
+  opacity: 1; transform: translateY(0);
+}
+@media (max-width: 900px) { .nav-mobile-panel { display: flex; } }
+.nav-mobile-panel a {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 3px;
+  text-decoration: none; color: var(--text2); text-transform: lowercase;
+  padding: 14px 28px; border-bottom: 1px solid var(--border);
+  transition: color .2s var(--ease), background .2s;
+}
+.nav-mobile-panel a:last-child { border-bottom: none; }
+.nav-mobile-panel a:hover, .nav-mobile-panel a.active { color: var(--v); background: var(--v3); }
+
+/* ── NAV ACTIVE LINK ─────────────── */
+.nav-links a.active { color: var(--v); }
+
+/* ── SCROLL REVEALS ──────────────── */
+section:not(#inicio) {
+  opacity: 0; transform: translateY(22px);
+  transition: opacity .65s var(--ease), transform .65s var(--ease);
+}
+section:not(#inicio).revealed { opacity: 1; transform: none; }
