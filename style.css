@@ -123,7 +123,8 @@ body::after {
   content: '';
   position: absolute; left: -1px; top: 0;
   width: 1px; height: 35%;
-  background: var(--v);
+  background: #c0392b;
+  box-shadow: 0 0 6px #c0392b;
   animation: scan 6s ease-in-out infinite;
 }
 @keyframes scan {
@@ -145,6 +146,33 @@ body::after {
 .hero-title em {
   font-style: italic; color: var(--v);
   font-weight: 400; display: block;
+  position: relative;
+}
+.hero-title em.glitch-ready {
+  animation: glitch-once 0.38s steps(1) forwards;
+}
+@keyframes glitch-once {
+  0%   { transform: none; color: var(--v); text-shadow: none; clip-path: none; }
+  10%  { transform: translate(-3px,0) skewX(-2deg); color: #c0392b; text-shadow: 2px 0 0 rgba(107,92,231,.6),-2px 0 0 rgba(192,57,43,.18); clip-path: inset(15% 0 70% 0); }
+  20%  { transform: translate(3px,0); color: var(--v); text-shadow: -2px 0 0 #c0392b; clip-path: inset(60% 0 10% 0); }
+  30%  { transform: translate(-2px,1px) skewX(1deg); color: #fff; text-shadow: 3px 0 0 #c0392b,-3px 0 0 var(--v); clip-path: inset(30% 0 40% 0); }
+  45%  { transform: translate(1px,-1px); color: #c0392b; text-shadow: none; clip-path: none; }
+  60%  { transform: translate(-1px,0); color: var(--v); text-shadow: 1px 0 0 rgba(192,57,43,.4); clip-path: none; }
+  100% { transform: none; color: var(--v); text-shadow: none; clip-path: none; }
+}
+
+/* Cursor de transmisión — solo en #siren-desc */
+#siren-desc::after {
+  content: '▋';
+  font-style: normal;
+  color: #c0392b;
+  animation: blink-cursor .7s steps(1) infinite;
+  display: inline;
+}
+#siren-desc.transmission-done::after { display: none; }
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
 /* La línea que respira entre el nombre y el resto.
@@ -178,7 +206,7 @@ body::after {
   transition: all .25s var(--ease);
 }
 .btn-p { background: var(--v); color: var(--bg); }
-.btn-p:hover { background: #8070ef; }
+.btn-p:hover { background: #c0392b; box-shadow: 0 0 16px rgba(192,57,43,.25); }
 .btn-s { background: transparent; color: var(--v); border: 1px solid var(--border2); }
 .btn-s:hover { background: var(--v3); border-color: var(--v); }
 .btn:disabled { opacity: .22; cursor: not-allowed; }
@@ -273,9 +301,21 @@ section + section { border-top: 1px solid var(--border); }
    Cada uno existe solo. Como el Área X. */
 .fragments { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
 .fragment {
-  padding: 28px 0; border-bottom: 1px solid var(--border);
-  position: relative;
+  padding: 28px 0 28px 22px; border-bottom: 1px solid var(--border);
+  position: relative; border-left: 2px solid transparent;
+  transition: border-color .25s var(--ease);
 }
+.fragment:last-child { border-bottom: none; }
+.fragment::before {
+  content: '';
+  position: absolute; left: -2px; top: 50%;
+  width: 2px; height: 0;
+  background: #c0392b;
+  box-shadow: 0 0 6px #c0392b;
+  transition: height .3s var(--ease), top .3s var(--ease);
+}
+.fragment:hover::before { height: 60%; top: 20%; }
+.fragment:hover { border-left-color: rgba(192,57,43,.2); }
 .fragment:last-child { border-bottom: none; }
 .frag-text {
   font-family: var(--serif); font-size: 19px; font-weight: 300;
